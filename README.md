@@ -1,4 +1,4 @@
-IBM Storage Protect Client Docker Container
+Docker Container for IBM's Storage Protect Client
 ==============================================
 
 Code to deploy IBM's Storage Protect client (dsmc in particular) inside a Docker container.
