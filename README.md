@@ -8,8 +8,9 @@ Binaries are downloaded from [IBM](https://public.dhe.ibm.com/storage/tivoli-sto
 
 Why?
 ------
-IssTech AB initially wrote this code to run restore tests for 
-IBM Storage Protect. 
+IssTech AB initially wrote this code to allow 
+[IssAssist](https://github.com/IssTech/issassist.helm) to run restore tests for 
+IBM Storage Protect.
 But in any situation where you need an IBM Storage Protect client in a 
 containerized/isolated Linux environment, this code may be useful.
 
