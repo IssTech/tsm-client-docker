@@ -37,7 +37,7 @@ Make sure to also mount the CA certificate of the SP server at:
 inside the container.
 
 Use the **exec** functionality of your container environment 
-(Docker, Kubernetes, etc.) to invoke `dsmc` inside the container.
+(Docker, Kubernetes, etc.) to invoke `dsmc`.
 
 Docker example:
 ```shell
