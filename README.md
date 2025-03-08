@@ -37,6 +37,9 @@ Make sure to also mount the CA certificate of the SP server at:
 ```
 inside the container.
 
+Once the container is started up and ready for use, it will output the line
+`ISSASSIST_TSM_CLIENT_CONTAINER_UP` in its log.
+
 Use the **exec** functionality of your container environment 
 (Docker, Kubernetes, etc.) to invoke `dsmc`.
 
