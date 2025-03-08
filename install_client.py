@@ -93,26 +93,41 @@ def install(tsm_client_installer_path: Path):
     """
     Install relevant .deb-files from tsm_client_installer_path.
     """
-    deb_paths = []
+    gskcrypt_deb = None
+    gskssl_deb = None
+    tivsm_api_deb = None
+    tivsm_ba_deb = None
 
     for deb_file_path in tsm_client_installer_path.glob("*.deb"):
         filename = deb_file_path.name
 
         if filename.startswith("gskcrypt"):
-            deb_paths.append(deb_file_path)
+            gskcrypt_deb = deb_file_path
         elif filename.startswith("gskssl"):
-            deb_paths.append(deb_file_path)
+            gskssl_deb = deb_file_path
         elif filename.startswith("tivsm-api64"):
-            deb_paths.append(deb_file_path)
+            tivsm_api_deb = deb_file_path
         elif filename.startswith("tivsm-ba."):
-            deb_paths.append(deb_file_path)
-
-    if len(deb_paths) < 4:
-        raise InstallationError("Could not find all necessary .deb files.")
+            tivsm_ba_deb = deb_file_path
 
     return_code = 0
-    for deb_path in deb_paths:
-        return_code |= call(["dpkg", "-i", deb_path])
+
+    if gskcrypt_deb:
+        return_code |= call(["dpkg", "-i", gskcrypt_deb])
+    else:
+        raise InstallationError("Could not find the gskcrypt deb package.")
+    if gskssl_deb:
+        return_code |= call(["dpkg", "-i", gskssl_deb])
+    else:
+        raise InstallationError("Could not find the gskssl deb package.")
+    if tivsm_api_deb:
+        return_code |= call(["dpkg", "-i", tivsm_api_deb])
+    else:
+        raise InstallationError("Could not find the tivsm_api deb package.")
+    if tivsm_ba_deb:
+        return_code |= call(["dpkg", "-i", tivsm_ba_deb])
+    else:
+        raise InstallationError("Could not find the tivsm_ba deb package.")
 
     if return_code != 0:
         raise InstallationError("Some .deb-files could not be installed.")
