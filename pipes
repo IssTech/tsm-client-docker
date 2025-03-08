@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Usage: pipes INPUT_STRING OUTPUT_FILE_PATH COMMAND [ARGS..]
+
+mkdir -p "$(dirname "$2")"
+while true; do echo "$1"; done | "${@:3}" > "$2"

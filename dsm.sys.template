@@ -1,0 +1,35 @@
+SERVERNAME {tsm_server_name}
+  NODENAME {tsm_proxy_name}
+  ASNODENAME {tsm_node_name}
+  TCPSERVERADDRESS {tsm_server_host}
+  TCPPORT {tsm_server_port}
+
+*  Can be TCPIP or V6TCPIP
+  COMMMETHOD         {ip_version}
+*  Use TLS? yes/no
+  SSL                {tls_enabled}
+  SSLREQUIRED        {tls_enabled}
+  PASSWORDACCESS     generate
+  MANAGEDSERVICES    SCHEDULE
+  VIRTUALMOUNTPOINT  /dev
+  SCHEDLOGRETENTION  28
+  SCHEDLOGNAME       /__issassist/data/logs/dsmsched.log
+  ERRORLOGRETENTION  28
+  ERRORLOGNAME       /__issassist/data/logs/dsmerror.log
+  SCHEDCMDDISABLED   yes
+  SCHEDCMDEXCEPTION  "tbmr_license"
+  SCHEDCMDEXCEPTION  "db_full"
+  SCHEDCMDEXCEPTION  "db_incr"
+  SCHEDCMDEXCEPTION  "mail_full"
+  SCHEDCMDEXCEPTION  "mail_incr"
+  SCHEDCMDEXCEPTION  "client_maintenance"
+
+  SCHEDRESTRETRDISABLED   yes
+  SRVPREPOSTSCHEDDISABLED yes
+  SRVPREPOSTSNAPDISABLED  yes
+
+  REVOKEREMOTEACCESS Access
+*  If we want TLS 1.2 only then the setting "TESTFLAG disable_tls13" will be
+*  inserted here:
+  {disable_tls13}
+
