@@ -9,7 +9,7 @@ from threading import Event
 DSM_OPT_TEMPLATE_PATH = Path("/__issassist/dsm.opt.template")
 DSM_SYS_TEMPLATE_PATH = Path("/__issassist/dsm.sys.template")
 TSM_CONFIG_PATH = Path("/__issassist/data")
-TSM_SERVER_CA_PATH = TSM_CONFIG_PATH / "ca.pem"
+TSM_SERVER_CA_PATH = TSM_CONFIG_PATH / "ca.crt"
 DSM_OPT_PATH = TSM_CONFIG_PATH / "dsm.opt"
 DSM_WC_OPT_PATH = TSM_CONFIG_PATH / "dsm_wc.opt"
 DSM_NO_WC_OPT_PATH = TSM_CONFIG_PATH / "dsm_no_wc.opt"
