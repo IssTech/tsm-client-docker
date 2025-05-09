@@ -102,6 +102,9 @@ def prepare() -> bool:
     call(["/opt/tivoli/tsm/client/ba/bin/dsmc", "set", "password",
           tsm_proxy_password, tsm_proxy_password])
 
+    # Ensure that /etc/mtab is available.
+    call(["ln", "-sf", "/proc/mounts", "/etc/mtab"])
+
     return True
 
 
