@@ -11,7 +11,6 @@ SERVERNAME {tsm_server_name}
   SSLREQUIRED        {tls_enabled}
   PASSWORDACCESS     generate
   MANAGEDSERVICES    SCHEDULE
-  VIRTUALMOUNTPOINT  /dev
   SCHEDLOGRETENTION  28
   SCHEDLOGNAME       /__issassist/data/logs/dsmsched.log
   ERRORLOGRETENTION  28
