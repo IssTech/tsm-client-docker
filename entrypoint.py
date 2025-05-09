@@ -51,6 +51,9 @@ def prepare() -> bool:
     assert isinstance(tsm_proxy_name, str)
     assert isinstance(tsm_proxy_password, str)
 
+    # Ensure that /etc/mtab is available.
+    call(["ln", "-sf", "/proc/mounts", "/etc/mtab"])
+
     # Write the CA certificate if TLS is enabled.
     if tls_enabled:
         if TSM_SERVER_CA_PATH.exists():
@@ -101,9 +104,6 @@ def prepare() -> bool:
     # Set the password.
     call(["/opt/tivoli/tsm/client/ba/bin/dsmc", "set", "password",
           tsm_proxy_password, tsm_proxy_password])
-
-    # Ensure that /etc/mtab is available.
-    call(["ln", "-sf", "/proc/mounts", "/etc/mtab"])
 
     return True
 
