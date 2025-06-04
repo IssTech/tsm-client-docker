@@ -47,3 +47,14 @@ Docker example:
 ```shell
 docker exec -it my_client_container dsmc
 ```
+
+License
+----------
+
+The license for the code in this Git repository can be found in 
+[LICENSE](LICENSE).
+
+IBM Storage Protect and the IBM Storage Protect Backup-Archive Client are 
+properties of IBM.
+
+This project is not associated with IBM.
