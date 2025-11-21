@@ -5,7 +5,7 @@ from subprocess import call, check_output
 from urllib.request import urlopen
 
 
-TSM_CLIENT_VERSION = "8.1.26.0"
+TSM_CLIENT_VERSION = "8.1.27.0"
 
 TSM_CLIENT_VERSION_S = "v" + "".join(TSM_CLIENT_VERSION.split(".")[:-1])
 

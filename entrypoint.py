@@ -61,8 +61,11 @@ def prepare() -> bool:
                   tsm_server_name, "-file", TSM_SERVER_CA_PATH])
             print("Certificate imported.")
         else:
-            print("Could not find CA certificate.")
-            return False
+            print(
+                f"No CA certificate has been provided at path "
+                f"'{TSM_SERVER_CA_PATH}'. "
+                f"The client will use pre-defined CA certificates."
+            )
 
     # Write dsmc configuration files
     DSM_OPT_PATH.write_text(
